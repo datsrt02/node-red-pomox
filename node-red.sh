@@ -60,7 +60,7 @@ UPD=$(whiptail --backtitle "Proxmox VE Helper Scripts" --title "SUPPORT" --radio
   3>&1 1>&2 2>&3)
 header_info
 if [ "$UPD" == "1" ]; then
-  if [[ "$(node -v | cut -d 'v' -f 2)" == "18."* ]]; then
+  if [[ "$(node -v | cut -d 'v' -f 2)" == "16."* ]]; then
     if ! command -v npm >/dev/null 2>&1; then
       msg_info "Installing NPM"
       apt-get install -y npm >/dev/null 2>&1
