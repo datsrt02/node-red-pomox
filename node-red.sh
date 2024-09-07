@@ -72,7 +72,7 @@ systemctl stop nodered
 msg_ok "Stopped ${APP}"
 
 msg_info "Updating ${APP}"
-npm install -g --unsafe-perm node-red &>/dev/null
+npm install -g --unsafe-perm node-red@3.1.0 &>/dev/null
 msg_ok "Updated ${APP}"
 
 msg_info "Starting ${APP}"
