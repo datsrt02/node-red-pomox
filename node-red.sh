@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/build.func)
+# Copyright (c) 2021-2024 tteck
+# Author: tteck (tteckster)
+# License: MIT
+# https://github.com/tteck/Proxmox/raw/main/LICENSE
+
 function header_info {
 clear
 cat <<"EOF"
@@ -55,7 +60,7 @@ UPD=$(whiptail --backtitle "Proxmox VE Helper Scripts" --title "SUPPORT" --radio
   3>&1 1>&2 2>&3)
 header_info
 if [ "$UPD" == "1" ]; then
-  if [[ "$(node -v | cut -d 'v' -f 2)" == "14."* ]]; then
+  if [[ "$(node -v | cut -d 'v' -f 2)" == "18."* ]]; then
     if ! command -v npm >/dev/null 2>&1; then
       msg_info "Installing NPM"
       apt-get install -y npm >/dev/null 2>&1
@@ -67,7 +72,7 @@ systemctl stop nodered
 msg_ok "Stopped ${APP}"
 
 msg_info "Updating ${APP}"
-npm install -g --unsafe-perm node-red@3.1.10
+npm install -g --unsafe-perm node-red@3.1.0
 msg_ok "Updated ${APP}"
 
 msg_info "Starting ${APP}"
